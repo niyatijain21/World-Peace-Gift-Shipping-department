@@ -1,0 +1,32 @@
+
+
+-- Server Functions
+
+USE world_peace;
+
+-- aggregate functions
+SELECT COUNT(*) FROM customer;
+SELECT MAX(qoh) FROM merchandise_item;
+SELECT MIN(unit_price)/100 FROM merchandise_item;
+SELECT AVG(unit_price)/100
+AS average_price FROM
+merchandise_item;
+
+
+SELECT SUM(quantity) FROM
+customer_order_line_item;
+
+
+-- Non-aggregate functions
+SELECT FORMAT(unit_price/100, 2, "es_IN")
+AS unit_price_decimal
+FROM merchandise_item;
+
+SELECT CONCAT(char_length(description), " chars")
+FROM merchandise_item;
+
+
+SELECT CONCAT("?", FORMAT(AVG(unit_price)/100, 2, "es_IN"))
+FROM merchandise_item;
+
+
